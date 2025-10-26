@@ -13,14 +13,13 @@ int main ()
 	Player player((Vector2){400, 200}, 0, false);
 	std::vector<EnvItem> envItems = 
 	{
-		{{ 0, 0, 3000, 400 }, 0, LIGHTGRAY},
-        {{ 0, 400, 3000, 200 }, 1, BLUE },
-        {{ 300, 200, 400, 10 }, 1, ORANGE },
-        {{ 250, 300, 100, 10 }, 1, GREEN },
-        {{ 650, 300, 100, 10 }, 1, YELLOW },
-		{{ 650, 200, 100, 10 }, 1, YELLOW },
-		{{ 650, 100, 100, 10 }, 1, YELLOW },
-		{{ 650, 0, 100, 10 }, 1, YELLOW }
+		{{ 0, 0, 3000, 400 }, LIGHTGRAY, 0},
+        {{ 0, 400, 3000, 200 }, BLUE, 1, 1},  // base level
+        {{ 300, 200, 400, 10 }, ORANGE, 1},
+		{{ 150, 100, 50, 10 }, PURPLE, 1},
+		{{ 0, 0, 50, 10 }, PURPLE, 1},
+        {{ 250, 300, 100, 10 }, GREEN, 1},
+        {{ 650, 300, 100, 10 }, YELLOW, 1}
 	};
 
 	Camera2D camera = 
@@ -50,6 +49,9 @@ int main ()
 			DrawRectangleRec(playerRect, RED);
 		EndMode2D();
 
+		char* test = player.CoordPlayer();
+		DrawText(test, 20, 20, 10, BLACK);
+		// printf("%s\n", test); // seg fault
 		EndDrawing();
 	}
 

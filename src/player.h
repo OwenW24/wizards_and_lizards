@@ -1,6 +1,6 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-
+#include <stdio.h>
 #include <vector>
 #include "envItem.h"
 #include "raylib.h"
@@ -23,12 +23,14 @@ class Player
 
     // update player methods
     private:
-        void XMove(std::vector<EnvItem> envItems, float delta);
-        void YMove(std::vector<EnvItem> envItems, float delta);
+        void MoveLeft(std::vector<EnvItem> envItems, float delta);
+        void MoveRight(std::vector<EnvItem> envItems, float delta);
+        void MoveUp(std::vector<EnvItem> envItems, float delta);
+        void MoveDown(std::vector<EnvItem> envItems, float delta);
     public:
         void UpdatePlayer(std::vector<EnvItem> envItems, float delta); 
         void FollowPlayer(Camera2D *camera, std::vector<EnvItem> envItems, float delta, int screenWidth, int screenHeight);
-
+        char* CoordPlayer();
 };
 
 

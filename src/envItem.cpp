@@ -1,8 +1,6 @@
 #include "envItem.h"
 
-EnvItem::EnvItem(Rectangle rect, int blocking, Color color)
+EnvItem::EnvItem(Rectangle rect, Color color, int blocking, int base)
+: rect{rect}, color{color}, blocking{blocking}, base{base} 
 {
-    this->rect = rect;
-    this->blocking = blocking;
-    this->color = color;
 }
